@@ -1,0 +1,40 @@
+[Defines]
+  INF_VERSION          = 0x00010005
+  BASE_NAME            = SingularityDxe
+  FILE_GUID            = c628d17d-a037-4363-89f7-211328d349b2
+  MODULE_TYPE          = DXE_RUNTIME_DRIVER
+  VERSION_STRING       = 1.0
+  ENTRY_POINT          = DxeDriverEntry
+
+[Sources]
+  SingularityDxe.c
+  SingularityDxe.h
+  util.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  DebugLib
+  UefiLib
+  BaseMemoryLib
+  DevicePathLib
+  SynchronizationLib
+  MemoryAllocationLib
+  PrintLib
+  IoLib
+
+[Protocols]
+  gEfiSimpleTextInputExProtocolGuid
+  gEfiLoadedImageProtocolGuid
+
+[Guids]
+  gEfiEventVirtualAddressChangeGuid
+  gEfiEventExitBootServicesGuid
+
+[Depex]
+  TRUE

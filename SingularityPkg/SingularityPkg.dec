@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION = 0x00010005
+  PACKAGE_NAME      = SingularityPkg
+  PACKAGE_GUID      = c628d17d-a037-4363-89f7-211328d349b3
+  PACKAGE_VERSION   = 1.0
+
+[Includes]
+  .

@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DriverMapper/DriverMapper.vcxproj" Id="989adfe7-262a-470f-9f78-e55d21ecde38" />
+</Solution>
