@@ -188,3 +188,42 @@ std::wstring utils::get_current_app_folder() {
 
 	return std::wstring(buffer).substr(0, pos);
 }
+
+bool utils::EnableDebugPrivilege() {
+	HANDLE token = nullptr;
+
+	if (!OpenProcessToken(
+		GetCurrentProcess(),
+		TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY,
+		&token)) {
+		return false;
+	}
+
+	LUID luid;
+	if (!LookupPrivilegeValueA(nullptr, SE_DEBUG_NAME, &luid)) {
+		CloseHandle(token);
+		return false;
+	}
+
+	TOKEN_PRIVILEGES tp{};
+	tp.PrivilegeCount = 1;
+	tp.Privileges[0].Luid = luid;
+	tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+
+	if (!AdjustTokenPrivileges(
+		token,
+		FALSE,
+		&tp,
+		sizeof(tp),
+		nullptr,
+		nullptr)) {
+		CloseHandle(token);
+		return false;
+	}
+
+	DWORD error = GetLastError();
+
+	CloseHandle(token);
+
+	return error == ERROR_SUCCESS;
+}

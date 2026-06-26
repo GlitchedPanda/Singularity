@@ -5,8 +5,7 @@
 The usermode mapper (`DriverMapper`) is a fork of [kdmapper](https://github.com/TheCruZ/kdmapper) that replaces the vulnerable-driver communication layer with a custom UEFI DXE runtime driver (`SingularityPkg`).
 
 > **Compatibility**
-> - Tested on **Windows 10 Version 22H2 (Build 19045.6466)**.
-> - **Known limitation:** Windows 11 is currently unsupported.
+> - Tested on **Windows 10 Version 22H2 (Build 19045.6466)** and **Windows 11 Version 25H2 (Build 26200.8037)**.
 
 ## How the UEFI DXE Driver Works
 

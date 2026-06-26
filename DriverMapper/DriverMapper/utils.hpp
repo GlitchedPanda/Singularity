@@ -23,4 +23,5 @@ namespace utils
 	uintptr_t find_pattern(uintptr_t dw_address, uintptr_t dw_len, BYTE* b_mask, const char* sz_mask);
 	PVOID find_section(const char* section_name, uintptr_t module_ptr, PULONG size);
 	std::wstring get_current_app_folder();
+	bool EnableDebugPrivilege();
 }

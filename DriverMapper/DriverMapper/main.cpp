@@ -149,6 +149,14 @@ int wmain(const int argc, wchar_t** argv) {
 		return -1;
 	}
 
+	// SeDebugPrivilege is required to fetch ntoskrnl.exe base address on Windows 11 24H2 and later
+	status = utils::EnableDebugPrivilege();
+	if (!status) {
+		log(L"[-] Failed to enable debug privilege" << std::endl);
+		pause_if_parent_is_explorer();
+		return -1;
+	}
+
 	std::vector<uint8_t> raw_image = { 0 };
 	if (!utils::read_file_to_memory(driver_path, &raw_image)) {
 		log(L"[-] Failed to read image to memory" << std::endl);
