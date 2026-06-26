@@ -4,6 +4,10 @@
 
 The usermode mapper (`DriverMapper`) is a fork of [kdmapper](https://github.com/TheCruZ/kdmapper) that replaces the vulnerable-driver communication layer with a custom UEFI DXE runtime driver (`SingularityPkg`).
 
+> **Compatibility**
+> - Tested on **Windows 10 Version 22H2 (Build 19045.6466)**.
+> - **Known limitation:** Windows 11 is currently unsupported.
+
 ## How the UEFI DXE Driver Works
 
 Instead of relying on a vulnerable kernel driver to execute arbitrary code in kernel mode, Singularity uses a UEFI DXE driver that runs in firmware space and hooks the EFI Runtime Service `SetVariable`.
