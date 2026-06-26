@@ -7,6 +7,14 @@ The usermode mapper (`DriverMapper`) is a fork of [kdmapper](https://github.com/
 > **Compatibility**
 > - Tested on **Windows 10 Version 22H2 (Build 19045.6466)** and **Windows 11 Version 25H2 (Build 26200.8037)**.
 
+## Demonstration
+
+Successfully mapping an unsigned kernel driver on Windows 11.
+
+![Successful driver mapping on Windows 11](assets/successful-mapping-windows11.png)
+
+**Full walkthrough:** https://youtu.be/Tm64grsKTO0
+
 ## How the UEFI DXE Driver Works
 
 Instead of relying on a vulnerable kernel driver to execute arbitrary code in kernel mode, Singularity uses a UEFI DXE driver that runs in firmware space and hooks the EFI Runtime Service `SetVariable`.
